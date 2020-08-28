@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}App Searcher{% endblock title %}
+{% block body %}
+<img class="w-100" class="img" src="/static/img/image.jpg" alt="" style="z-index: -1; position: absolute;">
+
+<div class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" style="margin-top: 60px; ">
+        <main role="main" class="inner cover">
+            <div>
+                <h1 class="cover-heading ">App Searcher</h1>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle col-md-6" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     ---Select app store---
+                    </button>
+                    <div class="dropdown-menu text-center col-md-6" aria-labelledby="dropdownMenuButton">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">---Select app store---</a>
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Google play store</a>
+                      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Apple store</a>
+                    </div>
+                  </div>
+            
+            
+            
+                  <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"></div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <form method="POST" action="/app_searcher/" style="margin-top: 30px;">
+                    {% csrf_token %}
+                    <div class="form-group col-md-6" style="margin-left: 350px;">
+                        <input type="package" class="form-control" id="package" , name="package"
+                            placeholder="Enter the app package name">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                </form>
+                    </div>
+
+                    <div class="container bg-dark col-md-8 text-white text-left my-3">
+                        <span class="text-danger">Icon  </span> : {{icon}}
+                        <br><span class="text-danger">App Name  </span> : {{appname}}
+                        <br><span class="text-danger">Developer Name  </span> : {{dname}}
+                        <br><span class="text-danger">Description  </span> : {{desc}}
+                        <br><span class="text-danger">Number of dowmload  </span> : {{download}} 
+                        <br><span class="text-danger">App Rating  </span> : {{rating}}
+                        <br><span class="text-danger">Number of Reviews  </span> : {{review}} 
+
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <form method="POST" action="/app_searcher/" style="margin-top: 30px;">
+                            {% csrf_token %}
+                            <div class="form-group col-md-6" style="margin-left: 350px;">
+                                <input type="name" class="form-control" id="name" , name="name"
+                                    placeholder="Enter the name of app">
+                            </div>
+                            <div class="form-group col-md-6" style="margin-left: 350px;">
+                                <input type="application" class="form-control" id="application" , name="application"
+                                    placeholder="Enter the application number">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                        </form>
+                        <!-- <div class="container bg-dark col-md-4 text-white text-left">
+                            App icon : {{icon}}
+                            <br>App Name : {{appname}}
+                            <br>Developer Name : 
+                            <br>Description : 
+                            <br>Number of download : 
+                            <br>App Rating : 
+                            <br>Number of Reviews :  
+
+                        </div> -->
+                    </div>
+                  </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+{% endblock body %}
+

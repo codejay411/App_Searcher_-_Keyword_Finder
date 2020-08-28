@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Keyword Finder{% endblock title %}
+{% block body %}
+<img class="w-100" src="/static/img/image2.jpg" alt="" style="z-index: -1; position: absolute;">
+<div class="text-center text-white">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" style="margin-top: 145px; ">
+        <main role="main" class="inner cover">
+            <div>
+                <h1 class="cover-heading ">Keyword Finder</h1>
+            </div>
+            <form method="POST" action="/keyword_finder/">
+            {% csrf_token %}
+                <div class="form-group col-md-6" style="margin-left: 350px;">
+                    <input type="url" class="form-control" id="url" , name="url"
+                        placeholder="Enter the URL...">
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            </form>
+        </main>
+    </div>
+</div>
+{% endblock body %}
